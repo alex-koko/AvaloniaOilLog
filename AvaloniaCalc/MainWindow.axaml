@@ -1,0 +1,33 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="650" Height="600"
+        WindowStartupLocation="CenterScreen"
+        x:Class="AvaloniaCalc.MainWindow"
+        Title="아발로니아 기름값 기록">
+    <StackPanel Orientation="Horizontal" >
+        <Calendar x:Name="calendar" SelectionMode="SingleDate" />
+        <StackPanel Orientation="Vertical" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="20, 60,20,20" Text="날짜" FontSize="20" />
+                <TextBlock Margin="20, 60,20,20" Text="{Binding #calendar.SelectedDate, StringFormat='yyyy-MM-dd'}" FontSize="20" x:Name="InputDate"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="20" Text="기름" FontSize="20" />
+                <TextBox Margin="20" Watermark="1" FontSize="20" x:Name="InputOil"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="20" Text="금액" FontSize="20" />
+                <TextBox Margin="20" Watermark="43000" FontSize="20" x:Name="InputMoney"/>
+            </StackPanel>
+            <TextBox Margin="20" FontSize="20" AcceptsReturn="True" TextWrapping="Wrap" Watermark="기록" x:Name="InputMemo"/>
+            <Button Click="Button_OnClick" Content="등록하기" Margin="30,0,0,0" Width="215" Height="70" FontSize="20" HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center" />
+            <TextBlock Margin="20" Text="" FontSize="20" x:Name="MsgWarning"/>
+            <TextBlock Margin="20" Text="결과가 기록되는 곳입니다" FontSize="20" x:Name="Result"/>
+
+        </StackPanel>
+    </StackPanel>
+</Window>
